@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 import pymysql
+import configparser
 
 from utils.secrets import *
 
@@ -115,17 +116,36 @@ WSGI_APPLICATION = 'djangoProject.wsgi.application'
 #     }
 # }
 
-DATABASES = {  # 配置 mysql 数据库
+# DATABASES = {  # 配置 mysql 数据库
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': Secrets.DataBase.db,
+#         'USER': Secrets.DataBase.user,
+#         'PASSWORD': Secrets.DataBase.passwd,
+#         'HOST': Secrets.DataBase.host,
+#         'POST': '3306'
+#     }
+# }
+config = configparser.ConfigParser()
+# 读取配置文件
+config.read(os.path.join(BASE_DIR, 'config.ini'), encoding='utf-8')
+# 读取配置文件中的数据库信息
+db_host = config.get('mysql', 'host')
+db_port = config.get('mysql', 'port')
+db_user = config.get('mysql', 'user')
+db_passwd = config.get('mysql', 'passwd')
+db_name = config.get('mysql', 'database')
+
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': Secrets.DataBase.db,
-        'USER': Secrets.DataBase.user,
-        'PASSWORD': Secrets.DataBase.passwd,
-        'HOST': Secrets.DataBase.host,
-        'POST': '3306'
+        'HOST': db_host,
+        'PORT': db_port,
+        'USER': db_user,
+        'PASSWORD': db_passwd,
+        'NAME': db_name,
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -169,12 +189,18 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Send mail configuration
+# 读取配置文件中的邮箱信息
+email_host = config.get('email', 'host')
+email_port = config.get('email', 'port')
+email_user = config.get('email', 'user')
+email_passwd = config.get('email', 'passwd')
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = Secrets.Email.emailHost
-EMAIL_PORT = Secrets.Email.emailPort
-EMAIL_HOST_USER = Secrets.Email.emailAddr
-EMAIL_HOST_PASSWORD = Secrets.Email.emailPasswd  # 邮箱 SMTP 授权码
+EMAIL_HOST = email_host
+EMAIL_PORT = email_port
+EMAIL_HOST_USER = email_user
+EMAIL_HOST_PASSWORD = email_passwd  # 邮箱 SMTP 授权码
 
 CONFIRM_DAYS = 3  # confirm valid days
 

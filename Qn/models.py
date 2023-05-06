@@ -47,7 +47,6 @@ class Survey(models.Model):
     type = models.CharField(max_length=32, verbose_name="问卷类型",default='')
     is_logic = models.BooleanField(default=False,verbose_name="是否存在逻辑问题")
 
-
 class Question(models.Model):
 
     question_id = models.AutoField(primary_key=True,verbose_name="问题id")
@@ -87,6 +86,7 @@ class Question(models.Model):
     is_shown = models.BooleanField(default=True, verbose_name="展示题目")
 
     # radio checkbox 单选题 多选题 text 填空 mark 判断 location 定位
+
 class Option(models.Model):
 
     option_id = models.AutoField(primary_key=True,verbose_name="选项编号")
@@ -97,7 +97,6 @@ class Option(models.Model):
     num_limit = models.PositiveIntegerField(default=0,verbose_name="最大额度")
     remain_num = models.PositiveIntegerField(default=0,verbose_name="剩余额度")
     has_num_limit = models.BooleanField(default=False, verbose_name="是否有额度限制")
-
 
 class Submit(models.Model):
     submit_id = models.AutoField(primary_key=True,verbose_name="提交编号")

@@ -191,12 +191,12 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Send mail configuration
-# 读取配置文件中的邮箱信息
-email_host = config.get('email', 'host')
-email_port = config.get('email', 'port')
-email_user = config.get('email', 'user')
-email_passwd = config.get('email', 'passwd')
+# # Send mail configuration
+# # 读取配置文件中的邮箱信息
+# email_host = config.get('email', 'host')
+# email_port = config.get('email', 'port')
+# email_user = config.get('email', 'user')
+# email_passwd = config.get('email', 'passwd')
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

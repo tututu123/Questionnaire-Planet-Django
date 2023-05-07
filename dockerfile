@@ -16,4 +16,4 @@ RUN pip install -r requirements_linux.txt
 # 将当前目录复制到容器的 code 目录
 ADD . /code/
 # 将/opt/config.int 拷贝到容器的 /code/config.int
-ADD config.ini /code/config.ini
+ADD config.ini /code/

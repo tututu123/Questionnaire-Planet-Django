@@ -142,7 +142,7 @@ config.read('/home/config.ini', encoding='utf-8')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'mydatabase',
+        'HOST': '124.220.177.62',
         'PORT': '3306',
         'USER': 'root',
         'PASSWORD': 'root',

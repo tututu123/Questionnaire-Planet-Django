@@ -8,6 +8,8 @@ services:
       - .:/code
     ports:
       - "8000:8000"
+    depends_on:
+      - mysql
     networks:
       - mydatabase
   mysql:
@@ -36,5 +38,3 @@ networks:
     driver: bridge
     ipam:
       driver: default
-      config:
-        - subnet: $DOCKER_SUBNET

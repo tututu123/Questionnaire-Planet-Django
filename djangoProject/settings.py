@@ -129,9 +129,9 @@ WSGI_APPLICATION = 'djangoProject.wsgi.application'
 config = configparser.ConfigParser()
 # 读取配置文件
 # 生产环境config.ini地址
-config.read('/home/config.ini', encoding='utf-8')
+# config.read('/home/config.ini', encoding='utf-8')
 # 本地环境config.ini地址
-# config.read(os.path.join(BASE_DIR, 'config.ini'), encoding='utf-8')
+config.read(os.path.join(BASE_DIR, 'config.ini'), encoding='utf-8')
 # 读取配置文件中的数据库信息
 db_host = config.get('mysql', 'host')
 db_port = config.get('mysql', 'port')

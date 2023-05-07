@@ -142,11 +142,11 @@ db_name = config.get('mysql', 'database')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': db_host,
-        'PORT': db_port,
-        'USER': db_user,
-        'PASSWORD': db_passwd,
-        'NAME': db_name,
+        'HOST': 'mydatabase',
+        'PORT': '3306',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'NAME': 'qn',
     }
 }
 # Password validation

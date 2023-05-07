@@ -198,12 +198,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # email_user = config.get('email', 'user')
 # email_passwd = config.get('email', 'passwd')
 
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = email_host
-EMAIL_PORT = email_port
-EMAIL_HOST_USER = email_user
-EMAIL_HOST_PASSWORD = email_passwd  # 邮箱 SMTP 授权码
+#
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = email_host
+# EMAIL_PORT = email_port
+# EMAIL_HOST_USER = email_user
+# EMAIL_HOST_PASSWORD = email_passwd  # 邮箱 SMTP 授权码
 
 CONFIRM_DAYS = 3  # confirm valid days
 

@@ -132,12 +132,12 @@ config = configparser.ConfigParser()
 config.read('/home/config.ini', encoding='utf-8')
 # 本地环境config.ini地址
 # config.read(os.path.join(BASE_DIR, 'config.ini'), encoding='utf-8')
-# 读取配置文件中的数据库信息
-db_host = config.get('mysql', 'host')
-db_port = config.get('mysql', 'port')
-db_user = config.get('mysql', 'user')
-db_passwd = config.get('mysql', 'passwd')
-db_name = config.get('mysql', 'database')
+# # 读取配置文件中的数据库信息
+# db_host = config.get('mysql', 'host')
+# db_port = config.get('mysql', 'port')
+# db_user = config.get('mysql', 'user')
+# db_passwd = config.get('mysql', 'passwd')
+# db_name = config.get('mysql', 'database')
 
 DATABASES = {
     'default': {

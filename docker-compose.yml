@@ -1,6 +1,15 @@
 version: "3"
 services:
-
+  app:
+    restart: always
+    build: .  # '点'代表当前目录
+    command: "python3 manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    networks:
+      - mydatabase
   mysql:
     image: registry.cn-hangzhou.aliyuncs.com/zhengqing/mysql:5.7  # 原镜像`mysql:5.7`
     container_name: mysql_3306                                    # 容器名为'mysql_3306'
@@ -20,15 +29,6 @@ services:
       - "3306:3306"
     networks:
       - mydatabase
-  app:
-    restart: always
-    build: .  # '点'代表当前目录
-    command: "python3 manage.py runserver 0.0.0.0:8000"
-    volumes:
-      - .:/code
-    ports:
-      - "8000:8000"
-    networks:
-      - mydatabase
+
 networks:
     mydatabase:

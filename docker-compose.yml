@@ -30,5 +30,11 @@ services:
     networks:
       - mydatabase
 
+
 networks:
-    mydatabase:
+  mydatabase:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: $DOCKER_SUBNET

@@ -9,7 +9,7 @@ services:
     ports:
       - "8000:8000"
     networks:
-        - mydatabase
+      - mydatabase
   mysql:
     image: registry.cn-hangzhou.aliyuncs.com/zhengqing/mysql:5.7  # 原镜像`mysql:5.7`
     container_name: mysql_3306                                    # 容器名为'mysql_3306'

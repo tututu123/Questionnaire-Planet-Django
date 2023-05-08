@@ -147,6 +147,7 @@ DATABASES = {
         'USER': db_user,
         'PASSWORD': db_passwd,
         'NAME': db_name,
+        'OPTIONS': {'charset': 'utf8mb4'},
     }
 }
 # Password validation
